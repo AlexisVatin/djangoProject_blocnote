@@ -42,7 +42,7 @@ class RegisterView(FormView):
     def form_valid(self, form):
         user = User.objects.create_user(username=form.cleaned_data['username'],
                                         password=form.cleaned_data['password'],
-                                        mail=form.cleaned_data['mail'])
+                                        email=form.cleaned_data['mail'])
 
         user.save()
         person = Person(user=user)

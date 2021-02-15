@@ -25,7 +25,7 @@ class RegisterForm(forms.ModelForm):
     username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Nom d\'utilisateur'}))
     mail = forms.EmailField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'mail@mail.com'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}))
-    password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Nom d\'utilisateur'}))
+    password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirmer mot de passe'}))
 
     class Meta:
         model = Person

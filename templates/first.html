@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block content %}
+    <section class="home-div">
+        <div class="paragraphe-home">
+            <h1> Post it here </h1>
+            <p>
+                Ce site a été développé pour le module CMS et framework avec Django dans
+                dans le cadre de la licence professionnelle DEV WEB. <br>
+                Vous pouvez vous connecter pour ensuite créer et consulter vos notes personnelles.
+            </p>
+        </div>
+    </section>
+{% endblock %}
