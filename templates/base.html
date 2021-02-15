@@ -17,8 +17,8 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     {% if not user.is_authenticated %}
         <ul class="navbar-nav mr-auto">
-            <a class="nav-link" href="{% url 'login' %}"> Connexion </a>
-            <a class="nav-link " href="{% url 'register' %}"> Inscription </a>
+            <a class="nav-link" href="{% url 'login' %}"> Login </a>
+            <a class="nav-link " href="{% url 'register' %}"> Register </a>
         </ul>
     {% else %}
         <div class="collapse navbar-collapse" id="navbarsExample02">
@@ -33,7 +33,7 @@
         </div>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'logout' %}">Deconnexion</a>
+                <a class="nav-link" href="{% url 'logout' %}"> Logout </a>
             </li>
         </ul>
     {% endif %}
