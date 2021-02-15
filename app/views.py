@@ -8,9 +8,8 @@ from django.views.generic import TemplateView, DetailView, ListView, FormView
 from django.urls import reverse
 from app.models import Post, Person
 
-# Create your views here.
-from django.views.generic import TemplateView
 
+# Create your views here.
 
 class FirstView(TemplateView):
     template_name = 'first.html'
@@ -34,11 +33,31 @@ class LogView(LoginView):
 
 
 class RegisterView(FormView):
-    pass
+    template_name = 'register.html'
+    form_class = RegisterForm
+
+    def get_success_url(self):
+        return reverse('index')
+
+    def form_valid(self, form):
+        user = User.objects.create_user(username=form.cleaned_data['username'],
+                                        password=form.cleaned_data['password'],
+                                        mail=form.cleaned_data['mail'])
+
+        user.save()
+        person = Person(user=user)
+        person.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
 class BoardView(ListView):
-    pass
+    template_name = 'allposts.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):
+        user = self.request.user
+        query = Person.objects.filter(user=user)
+        return Post.objects.filter(author__in=query)
 
 
 class PostDetailView(DetailView):
@@ -47,12 +66,28 @@ class PostDetailView(DetailView):
 
 
 def postcreate(request):
-    pass
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('index')
+    form = PostForm()
+    return render(request, 'create.html', {'form': form})
 
 
 def postedit(request, pk, template_name='edit.html'):
-    pass
+    post = get_object_or_404(Post, pk=pk)
+    form = PostForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+    return render(request, template_name, {'form': form})
 
 
 def postdelete(request, pk, template_name='delete.html'):
-    pass
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('index')
+    return render(request, template_name, {'object': post})
