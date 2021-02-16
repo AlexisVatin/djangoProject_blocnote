@@ -15,16 +15,12 @@
             </div>
             <div class="col-md-1 col-xs-1 col-sm-1">
                 <a href="{% url 'edit' post.pk %}">
-                    <button type="button" class="btn btn-info">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
+                    <button type="button" class="btn btn-primary">Edit</button>
                 </a>
             </div>
             <div class="col-md-1 col-xs-1 col-sm-1">
                 <a href="{% url 'delete' post.pk %}">
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-                    </button>
+                    <button type="button" class="btn btn-danger" aria-label="Left Align" >Delete</button>
                 </a>
             </div>
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
