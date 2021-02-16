@@ -1,4 +1,9 @@
 # Readme
 ## to do
-Use font awesome for icon instead of bootstrap3 classes  
 Fix register problem : 'AnonymousUser' object is not iterable
+
+---
+
+Compte utilisateur : username : alexis password : alexis
+
+Compte admin : username : admin password : admin
