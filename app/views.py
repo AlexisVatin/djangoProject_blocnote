@@ -7,6 +7,8 @@ from app.forms import PostForm, LoginForm, RegisterForm
 from django.views.generic import TemplateView, DetailView, ListView, FormView
 from django.urls import reverse
 from app.models import Post, Person
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
