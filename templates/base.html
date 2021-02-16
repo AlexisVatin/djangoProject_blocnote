@@ -17,7 +17,7 @@
 <!-- Nav bar -->
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     {% if not user.is_authenticated %}
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto ms-3">
             <a class="nav-link" href="{% url 'login' %}"> Login </a>
             <a class="nav-link " href="{% url 'register' %}"> Register </a>
         </ul>

@@ -10,7 +10,6 @@ from app.models import Post, Person
 from django.contrib.auth.decorators import login_required
 
 
-
 # Create your views here.
 
 class FirstView(TemplateView):
