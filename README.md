@@ -1,4 +1,5 @@
 # Readme
+URL github : https://github.com/AlexisVatin/djangoProject_blocnote
 ## to do
 Fix register problem : 'AnonymousUser' object is not iterable
 
